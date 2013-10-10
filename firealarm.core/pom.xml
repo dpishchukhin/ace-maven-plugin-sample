@@ -44,6 +44,7 @@
                         </Import-Package>
                         <Expport-Package/>
                         <Service-Component>OSGI-INF/*</Service-Component>
+                        <Bundle-Category>core</Bundle-Category>
                     </instructions>
                 </configuration>
             </plugin>

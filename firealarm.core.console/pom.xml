@@ -48,7 +48,8 @@
                             org.knowhowlab.osgi.workshop2012.firealarm.core.internal*
                         </Import-Package>
                         <Expport-Package/>
-                    <Fragment-Host>org.knowhowlab.osgi.workshop2012.firealarm.core</Fragment-Host>
+                        <Fragment-Host>org.knowhowlab.osgi.workshop2012.firealarm.core</Fragment-Host>
+                        <Bundle-Category>console</Bundle-Category>
                     </instructions>
                 </configuration>
             </plugin>

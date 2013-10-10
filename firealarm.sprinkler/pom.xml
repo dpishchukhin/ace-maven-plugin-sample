@@ -48,6 +48,7 @@
                             org.knowhowlab.osgi.workshop2012.firealarm.api*
                         </Import-Package>
                         <Expport-Package/>
+                        <Bundle-Category>alarm</Bundle-Category>
                     </instructions>
                 </configuration>
             </plugin>

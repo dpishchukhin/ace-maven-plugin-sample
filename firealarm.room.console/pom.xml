@@ -53,7 +53,8 @@
                             org.apache.felix.service.command*
                         </Import-Package>
                         <Expport-Package/>
-                    <Fragment-Host>org.knowhowlab.osgi.workshop2012.firealarm.room</Fragment-Host>
+                        <Fragment-Host>org.knowhowlab.osgi.workshop2012.firealarm.room</Fragment-Host>
+                        <Bundle-Category>console</Bundle-Category>
                     </instructions>
                 </configuration>
             </plugin>

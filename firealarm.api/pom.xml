@@ -30,12 +30,13 @@
                 <configuration>
                     <instructions>
                         <Export-Package>
-                            org.knowhowlab.maven.plugins.samples.firealarm.api*
+                            org.knowhowlab.osgi.workshop2012.firealarm.api*
                         </Export-Package>
                         <Import-Package>
                             org.slf4j*,
                             org.osgi*
                         </Import-Package>
+                        <Bundle-Category>core</Bundle-Category>
                     </instructions>
                 </configuration>
             </plugin>
