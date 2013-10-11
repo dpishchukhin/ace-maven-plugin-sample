@@ -49,11 +49,11 @@
                     <instructions>
                         <Import-Package>
                             org.knowhowlab.osgi.workshop2012.firealarm.api*,
-                            org.knowhowlab.osgi.workshop2012.firealarm.room.internal,
-                            org.apache.felix.service.command*
+                            !org.knowhowlab.osgi.workshop2012.firealarm.room.internal,
+                            org.apache.felix.service.command;status=provisional
                         </Import-Package>
                         <Expport-Package/>
-                        <Fragment-Host>org.knowhowlab.osgi.workshop2012.firealarm.room</Fragment-Host>
+                        <Fragment-Host>org.knowhowlab.maven.plugins.samples.firealarm.room</Fragment-Host>
                         <Bundle-Category>console</Bundle-Category>
                     </instructions>
                 </configuration>

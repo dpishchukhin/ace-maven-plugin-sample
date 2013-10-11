@@ -44,11 +44,11 @@
                         <Import-Package>
                             org.osgi*,
                             org.slf4j*,
-                            org.apache.felix.service.command,
-                            org.knowhowlab.osgi.workshop2012.firealarm.core.internal*
+                            !org.knowhowlab.osgi.workshop2012.firealarm.core.internal,
+                            org.apache.felix.service.command;status=provisional
                         </Import-Package>
                         <Expport-Package/>
-                        <Fragment-Host>org.knowhowlab.osgi.workshop2012.firealarm.core</Fragment-Host>
+                        <Fragment-Host>org.knowhowlab.maven.plugins.samples.firealarm.core</Fragment-Host>
                         <Bundle-Category>console</Bundle-Category>
                     </instructions>
                 </configuration>

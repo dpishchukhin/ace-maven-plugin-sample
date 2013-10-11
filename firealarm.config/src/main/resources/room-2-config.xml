@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0">
+    <OCD id="firealarm.room" name="Mock Room" description="Mock Room">
+        <AD id="room.id" type="String" name="Room ID" description="Room ID"/>
+        <AD id="description" type="String" name="Room Description" description="Room Description"/>
+    </OCD>
+    <OCD id="firealarm.lamp" name="Notification Lamp" description="Notification Lamp">
+        <AD id="global" type="String" default="false" name="Global Notification" description="Global Notification"/>
+        <AD id="room.id" type="String" name="Room ID" description="Room ID"/>
+        <AD id="description" type="String" name="Appliance Description" description="Appliance Description"/>
+    </OCD>
+    <OCD id="firealarm.sprinkler" name="Sprinkler" description="Sprinkler">
+        <AD id="room.id" type="String" name="Room ID" description="Room ID"/>
+        <AD id="description" type="String" name="Appliance Description" description="Appliance Description"/>
+    </OCD>
+    <OCD id="firealarm.smoke.sensor" name="Smoke Sensor" description="Smoke Sensor">
+        <AD id="room.id" type="String" name="Room ID" description="Room ID"/>
+        <AD id="description" type="String" name="Appliance Description" description="Appliance Description"/>
+    </OCD>
+
+    <OCD id="firealarm.temperature.sensor" name="Temperature Sensor" description="Temperature Sensor">
+        <AD id="temperature.limit" type="String" default="70" name="Temperature Alarm Limit" description="Temperature Alarm Limit"/>
+        <AD id="room.id" type="String" name="Room ID" description="Room ID"/>
+        <AD id="description" type="String" name="Appliance Description" description="Appliance Description"/>
+    </OCD>
+    <Designate factoryPid="firealarm.room">
+        <Object ocdref="firealarm.room">
+            <Attribute adref="room.id">
+                <Value><![CDATA[2]]></Value>
+            </Attribute>
+            <Attribute adref="description">
+                <Value><![CDATA[Room 102]]></Value>
+            </Attribute>
+        </Object>
+    </Designate>
+
+    <Designate factoryPid="firealarm.lamp">
+        <Object ocdref="firealarm.lamp">
+            <Attribute adref="room.id">
+                <Value><![CDATA[2]]></Value>
+            </Attribute>
+            <Attribute adref="description">
+                <Value><![CDATA[Notification Lamp in Room 102]]></Value>
+            </Attribute>
+            <Attribute adref="global">
+                <Value><![CDATA[true]]></Value>
+            </Attribute>
+        </Object>
+    </Designate>
+
+    <Designate factoryPid="firealarm.sprinkler">
+        <Object ocdref="firealarm.sprinkler">
+            <Attribute adref="room.id">
+                <Value><![CDATA[2]]></Value>
+            </Attribute>
+            <Attribute adref="description">
+                <Value><![CDATA[Sprinkler in Room 102]]></Value>
+            </Attribute>
+        </Object>
+    </Designate>
+    <Designate factoryPid="firealarm.smoke.sensor">
+        <Object ocdref="firealarm.smoke.sensor">
+            <Attribute adref="room.id">
+                <Value><![CDATA[2]]></Value>
+            </Attribute>
+            <Attribute adref="description">
+                <Value><![CDATA[Smoke Detector in Room 102]]></Value>
+            </Attribute>
+        </Object>
+    </Designate>
+    <Designate factoryPid="firealarm.temperature.sensor">
+        <Object ocdref="firealarm.temperature.sensor">
+            <Attribute adref="room.id">
+                <Value><![CDATA[2]]></Value>
+            </Attribute>
+            <Attribute adref="description">
+                <Value><![CDATA[Temperature Detector in Room 102]]></Value>
+            </Attribute>
+            <Attribute adref="temperature.limit">
+                <Value><![CDATA[50]]></Value>
+            </Attribute>
+        </Object>
+    </Designate>
+
+</MetaData>

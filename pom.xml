@@ -117,7 +117,7 @@
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-scr-plugin</artifactId>
-                    <version>1.8.0</version>
+                    <version>1.9.0</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-deploy-plugin</artifactId>
@@ -178,7 +178,7 @@
             <dependency>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>org.apache.felix.scr.annotations</artifactId>
-                <version>1.7.0</version>
+                <version>1.9.6</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.felix</groupId>
@@ -221,6 +221,7 @@
                 <module>firealarm.temperature.sensor</module>
                 <module>firealarm.core</module>
                 <module>firealarm.core.console</module>
+                <module>firealarm.config</module>
             </modules>
             <build>
                 <plugins>
@@ -329,7 +330,7 @@
                         <artifactId>ace-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>cmnp</id>
+                                <id>runtime-libs</id>
                                 <phase>package</phase>
                                 <goals>
                                     <goal>upload-artifacts</goal>
@@ -337,14 +338,19 @@
                                 <configuration>
                                     <artifacts>
                                         <artifact>
-                                            <groupId>org.apache.felix</groupId>
-                                            <artifactId>org.apache.felix.scr</artifactId>
-                                            <version>1.6.2</version>
+                                            <groupId>org.knopflerfish.bundle</groupId>
+                                            <artifactId>component</artifactId>
+                                            <version>4.0.2</version>
                                         </artifact>
                                         <artifact>
-                                            <groupId>org.apache.felix</groupId>
-                                            <artifactId>org.apache.felix.configadmin</artifactId>
-                                            <version>1.4.0</version>
+                                            <groupId>org.knopflerfish.bundle</groupId>
+                                            <artifactId>kxml-LIB</artifactId>
+                                            <version>2.3.0.kf4-001</version>
+                                        </artifact>
+                                        <artifact>
+                                            <groupId>org.knopflerfish.bundle</groupId>
+                                            <artifactId>cm</artifactId>
+                                            <version>4.0.1</version>
                                         </artifact>
                                         <artifact>
                                             <groupId>org.apache.felix</groupId>
@@ -355,6 +361,11 @@
                                             <groupId>org.apache.felix</groupId>
                                             <artifactId>org.apache.felix.metatype</artifactId>
                                             <version>1.0.8</version>
+                                        </artifact>
+                                        <artifact>
+                                            <groupId>org.knopflerfish</groupId>
+                                            <artifactId>log</artifactId>
+                                            <version>4.0.1</version>
                                         </artifact>
                                         <artifact>
                                             <groupId>org.slf4j</groupId>
@@ -396,7 +407,9 @@
                                         <description>Runtime Feature</description>
                                         <version>${project.version}</version>
                                     </attributes>
-                                    <artifactsLinkFilter>(|(Bundle-SymbolicName=org.apache.felix.*)(Bundle-SymbolicName=osgi.cmpn))</artifactsLinkFilter>
+                                    <artifactsLinkFilter>
+                                        (|(Bundle-SymbolicName=org.apache.felix.*)(Bundle-SymbolicName=org.knopflerfish.*))
+                                    </artifactsLinkFilter>
                                 </configuration>
                             </execution>
                             <execution>
@@ -411,7 +424,9 @@
                                         <description>Runtime Loggers Feature</description>
                                         <version>${project.version}</version>
                                     </attributes>
-                                    <artifactsLinkFilter>(|(Bundle-SymbolicName=ch.qos.logback*)(Bundle-SymbolicName=*slf4j*))</artifactsLinkFilter>
+                                    <artifactsLinkFilter>
+                                        (|(Bundle-SymbolicName=ch.qos.logback*)(Bundle-SymbolicName=*slf4j*))
+                                    </artifactsLinkFilter>
                                 </configuration>
                             </execution>
                         </executions>
@@ -489,6 +504,21 @@
                                 </configuration>
                             </execution>
                             <execution>
+                                <id>config-feature</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>create-feature</goal>
+                                </goals>
+                                <configuration>
+                                    <attributes>
+                                        <name>Config</name>
+                                        <description>Config Feature</description>
+                                        <version>${project.version}</version>
+                                    </attributes>
+                                    <artifactsLinkFilter>(filename=*)</artifactsLinkFilter>
+                                </configuration>
+                            </execution>
+                            <execution>
                                 <id>distribution</id>
                                 <phase>package</phase>
                                 <goals>
@@ -557,4 +587,10 @@
             </build>
         </profile>
     </profiles>
+    <repositories>
+        <repository>
+            <id>kf</id>
+            <url>http://www.knopflerfish.org/maven2</url>
+        </repository>
+    </repositories>
 </project>

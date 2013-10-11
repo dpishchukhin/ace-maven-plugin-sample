@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * @author dpishchukhin
  */
-@Component(specVersion = "1.1", name = "firealarm.rooms.console", label = "Rooms Console", description = "Rooms Console", immediate = true)
+@Component(specVersion = "1.2", name = "firealarm.rooms.console", label = "Rooms Console", description = "Rooms Console", immediate = true)
 @Service(RoomsConsole.class)
 @Properties({
         @Property(name = CommandProcessor.COMMAND_SCOPE, value = "firealarm"),

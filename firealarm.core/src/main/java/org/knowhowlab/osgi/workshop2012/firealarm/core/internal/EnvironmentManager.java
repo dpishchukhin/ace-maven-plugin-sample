@@ -7,7 +7,6 @@ import org.knowhowlab.osgi.workshop2012.firealarm.api.environment.RoomEnvironmen
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
-import org.osgi.service.component.ComponentConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,7 +37,7 @@ public class EnvironmentManager {
     }
 
     public String getApplianceDescription(String applianceId) {
-        ServiceReference reference = findReference(FireAppliance.class, String.format("(%s=%s)", ComponentConstants.COMPONENT_ID, applianceId));
+        ServiceReference reference = findReference(FireAppliance.class, String.format("(%s=%s)", Constants.APPLIANCE_ID_PROP, applianceId));
         if (reference != null) {
             return (String) reference.getProperty(Constants.DESCRIPTION_PROP);
         } else {
@@ -48,7 +47,7 @@ public class EnvironmentManager {
     }
 
     public boolean isApplianceActivated(String applianceId) {
-        ServiceReference reference = findReference(FireAppliance.class, String.format("(%s=%s)", ComponentConstants.COMPONENT_ID, applianceId));
+        ServiceReference reference = findReference(FireAppliance.class, String.format("(%s=%s)", Constants.APPLIANCE_ID_PROP, applianceId));
         if (reference != null) {
             FireAppliance fireAppliance = (FireAppliance) bc.getService(reference);
             try {
@@ -63,7 +62,7 @@ public class EnvironmentManager {
     }
 
     public void activateActionAppliance(String applianceId, boolean activate) {
-        ServiceReference reference = findReference(ActionAppliance.class, String.format("(%s=%s)", ComponentConstants.COMPONENT_ID, applianceId));
+        ServiceReference reference = findReference(ActionAppliance.class, String.format("(%s=%s)", Constants.APPLIANCE_ID_PROP, applianceId));
         if (reference != null) {
             ActionAppliance actionAppliance = (ActionAppliance) bc.getService(reference);
             try {
@@ -85,15 +84,15 @@ public class EnvironmentManager {
     }
 
     public Iterable<String> getAllFireApplianceIdsByRoomId(String roomId) {
-        return new ReferencesIterable(FireAppliance.class, createRoomAppliancesFilter(roomId, false), ComponentConstants.COMPONENT_ID);
+        return new ReferencesIterable(FireAppliance.class, createRoomAppliancesFilter(roomId, false), Constants.APPLIANCE_ID_PROP);
     }
 
     public Iterable<? extends String> getGlobalActionApplianceIds() {
-        return new ReferencesIterable(ActionAppliance.class, String.format("(%s=%s)", Constants.GLOBAL_PROP, "true"), ComponentConstants.COMPONENT_ID);
+        return new ReferencesIterable(ActionAppliance.class, String.format("(%s=%s)", Constants.GLOBAL_PROP, "true"), Constants.APPLIANCE_ID_PROP);
     }
 
     public Iterable<? extends String> getActionApplianceIdsByRoomId(String roomId, boolean onlyLocal) {
-        return new ReferencesIterable(ActionAppliance.class, createRoomAppliancesFilter(roomId, onlyLocal), ComponentConstants.COMPONENT_ID);
+        return new ReferencesIterable(ActionAppliance.class, createRoomAppliancesFilter(roomId, onlyLocal), Constants.APPLIANCE_ID_PROP);
     }
 
     private String createRoomAppliancesFilter(String roomId, boolean onlyLocal) {

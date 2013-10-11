@@ -15,17 +15,17 @@ import java.util.Map;
  */
 @Reference(name = AbstractSensorAppliance.EVENT_ADMIN_REFERENCE_NAME, referenceInterface = EventAdmin.class,
         cardinality = ReferenceCardinality.MANDATORY_UNARY, policy = ReferencePolicy.STATIC,
-        bind = "bindEventAdmin", unbind = "unbindEventAdmin")
+        bind = "bindEventAdmin", unbind = "unbindEventAdmin", target = "(service.pid=org.apache.felix.eventadmin.impl.EventAdmin)")
 public abstract class AbstractSensorAppliance extends AbstractFireAppliance {
     public static final String EVENT_ADMIN_REFERENCE_NAME = "ea.reference";
 
     private EventAdmin eventAdmin;
 
-    protected void bindEventAdmin(EventAdmin eventAdmin) {
+    public void bindEventAdmin(EventAdmin eventAdmin) {
         this.eventAdmin = eventAdmin;
     }
 
-    protected void unbindEventAdmin(EventAdmin eventAdmin) {
+    public void unbindEventAdmin(EventAdmin eventAdmin) {
         this.eventAdmin = null;
     }
 

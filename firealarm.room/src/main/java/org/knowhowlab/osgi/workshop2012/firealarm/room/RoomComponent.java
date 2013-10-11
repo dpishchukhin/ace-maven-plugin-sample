@@ -8,8 +8,8 @@ import org.knowhowlab.osgi.workshop2012.firealarm.api.environment.RoomEnvironmen
 /**
  * @author dpishchukhin
  */
-@Component(specVersion = "1.1", name = "firealarm.room", label = "Mock Room", description = "Mock Room",
-        metatype = true, configurationFactory = true, policy = ConfigurationPolicy.REQUIRE, immediate = true)
+@Component(specVersion = "1.2", name = "firealarm.room", label = "Mock Room", description = "Mock Room",
+        metatype = false, configurationFactory = true, policy = ConfigurationPolicy.REQUIRE, immediate = true)
 @Service({RoomEnvironment.class, RoomEnvironmentManipulator.class})
 @Properties({
         @Property(name = Constants.ROOM_ID_PROP, label = "Room ID", description = "Room ID"),

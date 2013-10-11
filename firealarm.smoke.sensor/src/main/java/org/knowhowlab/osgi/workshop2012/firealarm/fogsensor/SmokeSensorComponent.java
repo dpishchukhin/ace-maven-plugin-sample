@@ -1,7 +1,6 @@
 package org.knowhowlab.osgi.workshop2012.firealarm.fogsensor;
 
 import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.ConfigurationPolicy;
 import org.apache.felix.scr.annotations.Service;
 import org.knowhowlab.osgi.workshop2012.firealarm.api.FireAppliance;
 import org.knowhowlab.osgi.workshop2012.firealarm.api.common.AbstractSensorAppliance;
@@ -14,8 +13,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author dpishchukhin
  */
-@Component(specVersion = "1.1", name = "firealarm.smoke.sensor", label = "Smoke Sensor", description = "Smoke Sensor",
-        metatype = true, configurationFactory = true, policy = ConfigurationPolicy.REQUIRE, immediate = true)
+@Component(specVersion = "1.2", name = "firealarm.smoke.sensor", label = "Smoke Sensor", description = "Smoke Sensor",
+        metatype = false, configurationFactory = true, immediate = true)
 @Service(FireAppliance.class)
 public class SmokeSensorComponent extends AbstractSensorAppliance implements FireAppliance {
     private ScheduledExecutorService executorService;

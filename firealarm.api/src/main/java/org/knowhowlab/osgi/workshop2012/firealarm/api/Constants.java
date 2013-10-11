@@ -9,6 +9,10 @@ public class Constants {
      */
     public static final String ROOM_ID_PROP = "room.id";
     /**
+     * Appliance ID (as registration property)
+     */
+    public static final String APPLIANCE_ID_PROP = org.osgi.framework.Constants.SERVICE_ID;
+    /**
      * Description of an appliance or environment
      */
     public static final String DESCRIPTION_PROP = "description";

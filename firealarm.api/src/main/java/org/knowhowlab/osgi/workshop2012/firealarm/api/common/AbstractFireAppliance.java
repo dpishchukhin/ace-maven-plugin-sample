@@ -4,7 +4,6 @@ import org.apache.felix.scr.annotations.*;
 import org.knowhowlab.osgi.workshop2012.firealarm.api.Constants;
 import org.knowhowlab.osgi.workshop2012.firealarm.api.FireAppliance;
 import org.knowhowlab.osgi.workshop2012.firealarm.api.environment.RoomEnvironment;
-import org.osgi.service.component.ComponentConstants;
 import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,9 +40,18 @@ public abstract class AbstractFireAppliance implements FireAppliance {
     }
 
     private void readProperties(ComponentContext ctx) {
-        description = (String) ctx.getProperties().get(Constants.DESCRIPTION_PROP);
-        applianceId = String.valueOf(ctx.getProperties().get(ComponentConstants.COMPONENT_ID));
-        roomId = (String) ctx.getProperties().get(Constants.ROOM_ID_PROP);
+        description = getString(ctx.getProperties().get(Constants.DESCRIPTION_PROP));
+        applianceId = getString(ctx.getProperties().get(Constants.APPLIANCE_ID_PROP));
+        roomId = getString(ctx.getProperties().get(Constants.ROOM_ID_PROP));
+    }
+
+    private String getString(Object value) {
+        if (value == null) {
+            return null;
+        } if (value.getClass().isArray()) {
+            return null;
+        }
+        return String.valueOf(value);
     }
 
     @Deactivate

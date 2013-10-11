@@ -9,7 +9,7 @@ import org.osgi.service.component.ComponentContext;
 /**
  * @author dpishchukhin
  */
-@Component(specVersion = "1.1", name = "firealarm.system.console", label = "Fire Alarm System Console", description = "Fire Alarm System Console",
+@Component(specVersion = "1.2", name = "firealarm.system.console", label = "Fire Alarm System Console", description = "Fire Alarm System Console",
         immediate = true)
 @Service(FireAlarmSystemConsole.class)
 @Properties({

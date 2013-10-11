@@ -11,8 +11,8 @@ import org.osgi.service.event.EventHandler;
 /**
  * @author dpishchukhin
  */
-@Component(specVersion = "1.1", name = "firealarm.system", label = "Fire Alarm System", description = "Fire Alarm System",
-        metatype = true, immediate = true)
+@Component(specVersion = "1.2", name = "firealarm.system", label = "Fire Alarm System", description = "Fire Alarm System",
+        metatype = false, immediate = true)
 @Service(EventHandler.class)
 @Properties({
         @Property(name = EventConstants.EVENT_TOPIC, value = Constants.TOPIC)

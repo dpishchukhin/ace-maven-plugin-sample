@@ -1,7 +1,6 @@
 package org.knowhowlab.osgi.workshop2012.firealarm.sprinkler;
 
 import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.ConfigurationPolicy;
 import org.apache.felix.scr.annotations.Service;
 import org.knowhowlab.osgi.workshop2012.firealarm.api.ActionAppliance;
 import org.knowhowlab.osgi.workshop2012.firealarm.api.FireAppliance;
@@ -15,8 +14,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author dpishchukhin
  */
-@Component(specVersion = "1.1", name = "firealarm.sprinkler", label = "Sprinkler", description = "Sprinkler",
-        metatype = true, configurationFactory = true, policy = ConfigurationPolicy.REQUIRE, immediate = true)
+@Component(specVersion = "1.2", name = "firealarm.sprinkler", label = "Sprinkler", description = "Sprinkler",
+        metatype = false, configurationFactory = true, immediate = true)
 @Service({FireAppliance.class, ActionAppliance.class})
 public class SprinklerComponent extends AbstractFireAppliance implements ActionAppliance {
     private ScheduledExecutorService executorService;
